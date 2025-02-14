@@ -1,0 +1,627 @@
+ _   _ ________  ___ _     
+| | | |_   _|  \/  || |    
+| |_| | | | | .  . || |    
+|  _  | | | | |\/| || |    
+| | | | | | | |  | || |____
+\_| |_/ \_/ \_|  |_/\_____/ 2/14/2025
+                                     
+
+Initial HTML code that ChatGPT asked me to do (30 mins)
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Task List</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Task List
+        </h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>
+                Task Input Section
+            </h2>
+            <label for="taskname">Task Name:</label>
+            <input type="text" , id="taskname" placeholder="Do dishes" required>
+            <input type="submit" value="Submit">
+        </section>
+
+        <section>
+            <h3>
+                Task List
+            </h3>
+            <ul>
+                <li>Example Task 1</li> <input type="button" value="done"> <input type="button" value="delete">
+                <li>Example Task 2</li> <input type="button" value="done"> <input type="button" value="delete">
+                <li>Example Task 3</li> <input type="button" value="done"> <input type="button" value="delete">
+                <li>Example Task 4</li> <input type="button" value="done"> <input type="button" value="delete">
+                <li>Example Task 5</li> <input type="button" value="done"> <input type="button" value="delete">
+            </ul>
+        </section>
+
+        <section>
+            <h3>
+                Completed Tasks
+            </h3>
+            <ul>
+                <li>Example Task 6</li> 
+                <li>Example Task 7</li> 
+                <li>Example Task 8</li> 
+                <li>Example Task 9</li> 
+                <li>Example Task 10</li> 
+            </ul>
+        </section>
+
+        <button type="button">Clear All</button>
+
+    </main>
+
+</body>
+
+</html>
+
+Revision #1:
+1. Fix Input Syntax Error
+2. Wrap Input & Button in a <form>
+3. Fix Button Placement for Tasks
+4. Add Unique IDs or Classes for List Sections
+5. Make "Clear All" Button More Specific
+
+Revision #1 Result (10 mins):
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Task List</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Task List
+        </h1>
+    </header>
+
+    <main>
+        <section id="task-section">
+            <h2>
+                Task Input Section
+            </h2>
+            <form id="task-form">
+                <label for="taskname">Task Name:</label>
+                <input type="text" id="taskname" placeholder="Do dishes" required>
+                <input type="submit" value="Submit">
+            </form>
+
+            <h3>
+                Task List
+            </h3>
+            <ul id="task-list">
+                <li>Example Task 1 <input type="button" value="done"> <input type="button" value="delete"> </li>
+                <li>Example Task 2 <input type="button" value="done"> <input type="button" value="delete"> </li>
+                <li>Example Task 3 <input type="button" value="done"> <input type="button" value="delete"> </li>
+                <li>Example Task 4 <input type="button" value="done"> <input type="button" value="delete"> </li>
+                <li>Example Task 5 <input type="button" value="done"> <input type="button" value="delete"> </li>
+            </ul>
+        </section>
+
+        <section id="completed-section">
+            <h3>
+                Completed Tasks
+            </h3>
+            <ul id="completed-list">
+                <li>Example Task 6</li>
+                <li>Example Task 7</li>
+                <li>Example Task 8</li>
+                <li>Example Task 9</li>
+                <li>Example Task 10</li>
+            </ul>
+        </section>
+
+        <button id="clear-completed" type="button">Clear Completed</button>
+
+    </main>
+
+</body>
+
+</html>
+
+Revision #2:
+1. Change <input type="button"> to <button> for Better Semantics
+2. Add aria-live="polite" for Task List Updates (Accessibility Boost)
+3. Small Cleanup for Readability
+
+Revision #2 Result (5 mins):
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Task List</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Task List
+        </h1>
+    </header>
+
+    <main>
+        <section id="task-section">
+            <h2>
+                Task Input Section
+            </h2>
+            <form id="task-form">
+                <label for="taskname">Task Name:</label>
+                <input type="text" id="taskname" placeholder="Do dishes" required>
+                <input type="submit" value="Submit">
+            </form>
+
+            <h3>
+                Task List
+            </h3>
+            <ul id="task-list" aria-live="polite">
+                <li>Example Task 1 <button class="done-btn">Done</button> <button class="delete-btn">Delete</button>  </li>
+                <li>Example Task 2 <button class="done-btn">Done</button> <button class="delete-btn">Delete</button>  </li>
+                <li>Example Task 3 <button class="done-btn">Done</button> <button class="delete-btn">Delete</button>  </li>
+                <li>Example Task 4 <button class="done-btn">Done</button> <button class="delete-btn">Delete</button>  </li>
+                <li>Example Task 5 <button class="done-btn">Done</button> <button class="delete-btn">Delete</button>  </li>
+            </ul>
+        </section>
+
+        <section id="completed-section">
+            <h3>
+                Completed Tasks
+            </h3>
+            <ul id="completed-list">
+                <li>Example Task 6</li>
+                <li>Example Task 7</li>
+                <li>Example Task 8</li>
+                <li>Example Task 9</li>
+                <li>Example Task 10</li>
+            </ul>
+        </section>
+
+        <button id="clear-completed" type="button">Clear Completed</button>
+
+    </main>
+
+</body>
+
+</html>
+
+ _____  _____ _____ 
+/  __ \/  ___/  ___|
+| /  \/\ `--.\ `--. 
+| |     `--. \`--. \
+| \__/\/\__/ /\__/ /
+ \____/\____/\____/ 2/14/2025
+                    
+Initial CSS code that ChatGPT asked me to do (30 mins)
+* {
+    max-width: 600px;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bolder;
+    color: coral;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color:chocolate
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: brown;
+}
+
+.done-btn {
+    border-radius:10%;
+    border-color: greenyellow;
+    background-color: green;
+    padding: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+    color: white;
+}
+
+.done-btn:hover {
+    background-color: #218838;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+    color: white;
+}
+
+li {
+    border-color: black;
+    margin: 4px;
+}
+
+.delete-btn {
+    border-radius: 10%;
+    background-color: red;
+    border-color:brown;
+    padding: 8px;
+    color: white;
+}
+
+section {
+    padding: 8px;
+    margin: auto;
+}                    
+
+Revision #1 and unfinished tasks (15 mins):
+1. General Layout & Structure Fixes
+2. Typography & Readability
+3. Buttons & Inputs
+4. Task List Styling (Unfinished)
+5. Hover & Focus Effects (Unfinished)
+
+Revision #1 and unfinished tasks (25 mins):
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+main {
+    max-width: 600px;
+    margin: auto;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    margin-bottom: 12px;
+    line-height: 1.5lh;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bolder;
+    color: #00796B;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #009688;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00695C;
+}
+
+button {
+    border-radius: 10%;
+    padding: 8px;
+}
+
+.done-btn {
+    border-color: #388E3C;
+    background-color: #388E3C;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #D32F2F;
+    border-color: #D32F2F;
+    color: white;
+}
+
+.done-btn:hover {
+    background-color: #2E7D32;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #C62828;
+    color: white;
+}
+
+#task-list li {
+    background-color: #ECEFF1;
+    color: #37474F;
+}
+
+#task-list li:hover {
+    background-color: #CFD8DC;
+    color: #00796B;
+}
+
+#completed-list li {
+    background-color: #E8F5E9;
+    color: #1B5E20;
+}
+
+#completed-list li:hover {
+    background-color: #C8E6C9;
+    color: #004D40;
+}
+
+li {
+    border-radius: 12px;
+    border: 1px solid #B0BEC5;
+    padding: 4px;
+    margin: 8px;
+    list-style-type: none;
+}
+
+section {
+    border-radius: 12px;
+    border: 1px solid #B0BEC5;
+    padding: 8px;
+    margin-bottom: 20px;
+    background-color: #FAFAFA;
+}
+
+Revision #2 and unfinished tasks (5 mins):
+1. Task Hover Color Seletion Issue (too subtle)
+2. Button Differentiation for the Completed Delete Button
+3. Added Completed Delete Button in HTML
+
+Revision #2 and unfinished tasks (5 mins):
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+main {
+    max-width: 600px;
+    margin: auto;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    margin-bottom: 12px;
+    line-height: 1.5lh;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bolder;
+    color: #00796B;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #009688;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00695C;
+}
+
+button {
+    border-radius: 10%;
+    padding: 8px;
+    color: white;
+}
+
+.done-btn {
+    border-color: #388E3C;
+    background-color: #388E3C;
+}
+
+.delete-btn {
+    background-color: #D32F2F;
+    border-color: #D32F2F;
+}
+
+.done-btn:hover {
+    background-color: #2E7D32;
+}
+
+.delete-btn:hover {
+    background-color: #C62828;
+}
+
+#task-list li {
+    background-color: #ECEFF1;
+    color: #37474F;
+}
+
+#task-list li:hover {
+    background-color: #B0BEC5;
+    color: #00796B;
+}
+
+#completed-list li {
+    background-color: #E8F5E9;
+    color: #1B5E20;
+}
+
+#completed-list li:hover {
+    background-color: #A5D6A7 ;
+    color: #004D40;
+}
+
+.completed-delete-btn {
+    background-color: #6D4C41;
+    border-color: #5D4037;
+}
+
+.completed-delete-btn:hover {
+    background-color: #4E342E;
+}
+
+input[type="text"] {
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #B0BEC5
+}
+
+input[type="text"]:focus {
+    border-color: #009688;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 150, 136, 0.5);
+}
+
+
+li {
+    border-radius: 12px;
+    border: 1px solid #B0BEC5;
+    padding: 4px;
+    margin: 8px;
+    list-style-type: none;
+}
+
+section {
+    border-radius: 12px;
+    border: 1px solid #B0BEC5;
+    padding: 8px;
+    margin-bottom: 20px;
+    background-color: #FAFAFA;
+}
+
+Revision #3 (5 mins):
+1. Invalid line-height syntax
+2. Delete Button Border Fix to 2px
+3. Small Aesthetic Fix for Input Fields by adding width: 100%
+
+
+Revision #3 (5 mins):
+* {
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+main {
+    max-width: 600px;
+    margin: auto;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bolder;
+    color: #00796B;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #009688;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00695C;
+}
+
+button {
+    border-radius: 10%;
+    border-width: 2px;
+    padding: 6px 10px;
+    color: white;
+}
+
+.done-btn {
+    border-color: #388E3C;
+    background-color: #388E3C;
+}
+
+.delete-btn {
+    background-color: #D32F2F;
+    border-color: #B71C1C;
+}
+
+.done-btn:hover {
+    background-color: #2E7D32;
+}
+
+.delete-btn:hover {
+    background-color: #C62828;
+}
+
+#task-list li {
+    background-color: #ECEFF1;
+    color: #37474F;
+}
+
+#task-list li:hover {
+    background-color: #B0BEC5;
+    color: #00796B;
+}
+
+#completed-list li {
+    background-color: #E8F5E9;
+    color: #1B5E20;
+}
+
+#completed-list li:hover {
+    background-color: #A5D6A7 ;
+    color: #004D40;
+}
+
+.completed-delete-btn {
+    background-color: #6D4C41;
+    border-color: #8D6E63;
+}
+
+.completed-delete-btn:hover {
+    background-color: #4E342E;
+}
+
+
+input[type="text"] {
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #B0BEC5;
+    width: 100%;
+    max-width: 500px;
+
+}
+
+input[type="text"]:focus {
+    border-color: #009688;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 150, 136, 0.5);
+}
+
+
+li {
+    border-radius: 12px;
+    border: 1px solid #B0BEC5;
+    padding: 8px;
+    margin: 8px;
+    list-style-type: none;
+}
+
+section {
+    border-radius: 12px;
+    border: 1px solid #B0BEC5;
+    padding: 8px;
+    margin-bottom: 20px;
+    background-color: #FAFAFA;
+}

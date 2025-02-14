@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Task List</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Interactive Task List App
+        </h1>
+    </header>
+
+    <main>
+        <section id="task-input-section">
+            <h2>
+                Task Input Section
+            </h2>
+            <form id="task-form">
+                <label for="taskname">Task Name:</label>
+                <input type="text" id="taskname" placeholder="Do dishes" required>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+
+        <section id="task-section">
+           
+            <h3>
+                Task List
+            </h3>
+            <ul id="task-list" aria-live="polite">
+                <li>Example Task 1 <button class="done-btn">Done</button> <button class="delete-btn">Delete</button>  </li>
+                <li>Example Task 2 <button class="done-btn">Done</button> <button class="delete-btn">Delete</button>  </li>
+                <li>Example Task 3 <button class="done-btn">Done</button> <button class="delete-btn">Delete</button>  </li>
+                <li>Example Task 4 <button class="done-btn">Done</button> <button class="delete-btn">Delete</button>  </li>
+                <li>Example Task 5 <button class="done-btn">Done</button> <button class="delete-btn">Delete</button>  </li>
+            </ul>
+        </section>
+
+        <section id="completed-section">
+            <h3>
+                Completed Tasks
+            </h3>
+            <ul id="completed-list">
+                <li>Example Task 6 <button class="completed-delete-btn">Delete</button></li>
+                <li>Example Task 7 <button class="completed-delete-btn">Delete</button></li>
+                <li>Example Task 8 <button class="completed-delete-btn">Delete</button></li>
+                <li>Example Task 9 <button class="completed-delete-btn">Delete</button></li>
+                <li>Example Task 10 <button class="completed-delete-btn">Delete</button></li>
+            </ul>
+        </section>
+
+        <button id="clear-completed" type="button">Clear Completed</button>
+
+    </main>
+
+</body>
+
+</html>
